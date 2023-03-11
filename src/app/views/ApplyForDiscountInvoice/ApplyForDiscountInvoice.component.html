@@ -1,0 +1,168 @@
+<div class="container" style="max-width: 210mm !important">
+  <div class="row">
+    <div class="col-12">
+      <button (click)="download()" class="btn btn-primary pull-right mb-2">
+        Download PDF
+      </button>
+    </div>
+    <div class="col-12" id="parentdiv">
+      <div class="card">
+        <div class="row text-white p-4" style="background: #262a2e">
+          <div class="col-4">
+            <img style="width: 100%;" src="{{RootService?.ProfileData?.logoLargeUrl}}" />
+          </div>
+          <div class="col-8 text-right">
+            <p>
+              {{RootService?.ProfileData?.addressOne}}
+              {{RootService?.ProfileData?.addressTwo}}
+            </p>
+            <p>
+              {{RootService?.ProfileData?.phoneNumber}} <br />
+              {{RootService?.ProfileData?.email}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row p-4" style="background: #fff">
+          <div class="col-3">
+            <h6>Order No</h6>
+            <!-- <p>INS000{{ RootService.insurenceData.id }}</p> -->
+            <p> Ord00{{ RootService.applyForDiscountData.id }}</p>
+            <h6>Policy Start Date</h6>
+            <p>{{ RootService.applyForDiscountData.policyStartDate }}</p>
+          </div>
+          <div class="col-9 text-right">
+            <h6>Bill To</h6>
+            <p>
+              {{ RootService.applyForDiscountData.payerFirstName }}
+              {{ RootService.applyForDiscountData.payerLastName }}, <br />
+              {{ RootService.applyForDiscountData.payerCountryCode
+              }}{{ RootService.applyForDiscountData.payerContactNumber }} <br />
+              {{ RootService.applyForDiscountData.payerEmail }}
+            </p>
+          </div>
+          <!-- <div class="col-6 text-right">
+            <h6>Invoice Total</h6>
+            <p style="font-size: 24px">
+              AED {{ RootService.insurenceData.carValue }}.00
+            </p>
+          </div> -->
+        </div>
+        <div class="row p-4" style="background: #fff">
+          <div class="col-12">
+            <table class="table">
+              <tr>
+                <th>Questions</th>
+                <th class="text-right">Answer</th>
+              </tr>
+              <!-- <tr>
+                <th>Fine Amount</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.fineAmount }}
+                </td>
+              </tr> -->
+              <!-- <tr>
+                <th>Deduction Amount</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.deductionAmount }}
+                </td>
+              </tr> -->
+          
+              <!-- <tr>
+                <th>Remaining Fine</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.remainingFine }}
+                </td>
+              </tr> -->
+
+               <tr>
+                <th>Service Charges</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.serviceChargesInAed }}
+                </td>
+              </tr>
+              <!-- <tr>
+                <th>Government Fee</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.governmentFeeInAed }}
+                </td>
+              </tr> -->
+              <tr>
+                <th>Total Payable Amount</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.totalPayableAmountInAed }}
+                </td>
+              </tr>
+              <tr>
+                <th>Vat Charges</th>
+                <td class="text-right">
+                  {{ RootService.applyForDiscountData.vatChargesInAed }}
+                </td>
+              </tr>
+              <tr> 
+                <th>Driving License File Front</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.applyForDiscountData.payFineDrivingLicenseFileUrlFront)"
+                    >{{RootService.applyForDiscountData.payFineDrivingLicenseFileUrlFront == null || RootService.applyForDiscountData.payFineDrivingLicenseFileUrlFront == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr> 
+                <th>Driving License File Back</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.applyForDiscountData.payFineDrivingLicenseFileUrlBack)"
+                    >{{RootService.applyForDiscountData.payFineDrivingLicenseFileUrlBack == null || RootService.applyForDiscountData.payFineDrivingLicenseFileUrlBack == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Emirates Id File Front</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.applyForDiscountData.payFineEmirateIdFileUrlFront)"
+                    >{{RootService.applyForDiscountData.payFineEmirateIdFileUrlFront == null || RootService.applyForDiscountData.payFineEmirateIdFileUrlFront == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Emirates Id File Back</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.applyForDiscountData.payFineEmirateIdFileUrlBack)"
+                    >{{RootService.applyForDiscountData.payFineEmirateIdFileUrlBack == null || RootService.applyForDiscountData.payFineEmirateIdFileUrlBack == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Car Registration Card File Front</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.applyForDiscountData.carRegistrationCardFileUrlFront)"
+                    > {{RootService.applyForDiscountData.carRegistrationCardFileUrlFront == null || RootService.applyForDiscountData.carRegistrationCardFileUrlFront == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Car Registration Card File Back</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.applyForDiscountData.carRegistrationCardFileUrlBack)"
+                    > {{RootService.applyForDiscountData.carRegistrationCardFileUrlBack == null || RootService.applyForDiscountData.carRegistrationCardFileUrlBack == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<div class="container" style="max-width: 210mm !important">
+  <div class="row">
+    <div class="col-12">
+      <button (click)="download()" class="btn btn-primary pull-right mb-2">
+        Download PDF
+      </button>
+    </div>
+    <div class="col-12" id="parentdiv">
+      <div class="card">
+        <div class="row text-white p-4" style="background: #262a2e">
+          <div class="col-4">
+            <img style="width: 100%;" src="{{RootService?.ProfileData?.logoLargeUrl}}" />
+          </div>
+          <div class="col-8 text-right">
+            <p>
+              {{RootService?.ProfileData?.addressOne}}
+              {{RootService?.ProfileData?.addressTwo}}
+            </p>
+            <p>
+              {{RootService?.ProfileData?.phoneNumber}} <br />
+              {{RootService?.ProfileData?.email}}
+            </p>
+          </div>
+        </div>
+
+        <div class="row p-4" style="background: #fff">
+          <div class="col-3">
+            <h6>Order No</h6>
+            <!-- <p>INS000{{ RootService.insurenceData.id }}</p> -->
+            <p> Ord00{{ RootService.payFineData.id }}</p>
+            <h6>Policy Start Date</h6>
+            <p>{{ RootService.payFineData.policyStartDate }}</p>
+          </div>
+          <div class="col-9 text-right">
+            <h6>Bill To</h6>
+            <p>
+              {{ RootService.payFineData.payerFirstName }}
+              {{ RootService.payFineData.payerLastName }}, <br />
+              {{ RootService.payFineData.payerCountryCode
+              }}{{ RootService.payFineData.payerContactNumber }} <br />
+              {{ RootService.payFineData.payerEmail }}
+            </p>
+          </div>
+          <!-- <div class="col-6 text-right">
+            <h6>Invoice Total</h6>
+            <p style="font-size: 24px">
+              AED {{ RootService.insurenceData.carValue }}.00
+            </p>
+          </div> -->
+        </div>
+        <div class="row p-4" style="background: #fff">
+          <div class="col-12">
+            <table class="table">
+              <tr>
+                <th>Questions</th>
+                <th class="text-right">Answer</th>
+              </tr>
+              <tr>
+                <th>Fine Amount</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.fineAmount }}
+                </td>
+              </tr>
+              <tr>
+                <th>Deduction Amount</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.deductionAmount }}
+                </td>
+              </tr>
+          
+              <tr>
+                <th>Remaining Fine</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.remainingFine }}
+                </td>
+              </tr>
+
+              <tr>
+                <th>Service Charge</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.serviceCharge }}
+                </td>
+              </tr>
+              <tr>
+                <th>Processing Fee</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.processingFee }}
+                </td>
+              </tr>
+              <tr>
+                <th>Vat Amount</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.vatTax }}
+                </td>
+              </tr>
+              <tr>
+                <th>Payable Fine</th>
+                <td class="text-right">
+                  {{ RootService.payFineData.payableFine }}
+                </td>
+              </tr>
+              <tr>
+                <th>Driving License File Front Page</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.payFineData.payFineDrivingLicenseFileUrlFront)"
+                    >{{RootService.payFineData.payFineDrivingLicenseFileUrlFront == null || RootService.payFineData.payFineDrivingLicenseFileUrlFront == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Driving License File Back Page</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.payFineData.payFineDrivingLicenseFileUrlBack)"
+                    >{{RootService.payFineData.payFineDrivingLicenseFileUrlBack == null || RootService.payFineData.payFineDrivingLicenseFileUrlBack == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Emirates Id File Front Page</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.payFineData.payFineEmirateIdFileUrlFront)"
+                    >{{RootService.payFineData.payFineEmirateIdFileUrlFront == null || RootService.payFineData.payFineEmirateIdFileUrlFront == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Emirates Id File Back Page</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.payFineData.payFineEmirateIdFileUrlBack)"
+                    >{{RootService.payFineData.payFineEmirateIdFileUrlBack == null || RootService.payFineData.payFineEmirateIdFileUrlBack == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Car Registration Card File Front Page</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.payFineData.carRegistrationCardFileUrlFront)"
+                    > {{RootService.payFineData.carRegistrationCardFileUrlFront == null || RootService.payFineData.carRegistrationCardFileUrlFront == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <th>Car Registration Card File Back Page</th>
+                <td class="text-right">
+                  <a
+                    href="javascript:void(0)"
+                    (click)="openURl(RootService.payFineData.carRegistrationCardFileUrlBack)"
+                    > {{RootService.payFineData.carRegistrationCardFileUrlBack == null || RootService.payFineData.carRegistrationCardFileUrlBack == ''? 'Doc Not Uploaded': 'View'}}</a
+                  >
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
